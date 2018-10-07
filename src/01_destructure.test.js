@@ -69,7 +69,7 @@ describe('destructuring also works on strings', () => {
 describe('destructuring objects', () => {
 
   it('is simple', () => {
-    const x = {x: 1}
+    const { x } = {x: 1}
 
     expect(x).toEqual(1)
   })
@@ -77,17 +77,17 @@ describe('destructuring objects', () => {
   describe('nested', () => {
     it('multiple objects', () => {
       const magic = {first: 23, second: 42}
-      const {magic: [second]} = {magic}
+      const {magic: {second}} = {magic}
 
       expect(second).toEqual(42)
     })
     it('object and array', () => {
-      const {z:[x]} = {z: [23, 42]}
+      const {z: [,x]} = {z: [23, 42]}
 
       expect(x).toEqual(42)
     })
     it('array and object', () => {
-      const [,{lang}] = [null, [{env: 'browser', lang: 'ES6'}]]
+      const [,[{lang}]] = [null, [{env: 'browser', lang: 'ES6'}]]
 
       expect(lang).toEqual('ES6')
     })

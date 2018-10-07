@@ -140,7 +140,7 @@ describe('destructuring function parameters', () => {
 
   describe('destruct parameters', () => {
     it('multiple params from object', () => {
-      const fn = ({id}, {name}) => {
+      const fn = ({id, name}) => {
         expect(id).toEqual(42)
         expect(name).toEqual('Wolfram')
       }
@@ -149,7 +149,7 @@ describe('destructuring function parameters', () => {
     })
 
     it('multiple params from array/object', () => {
-      const fn = ([{name}]) => {
+      const fn = ([,{name}]) => {
         expect(name).toEqual('Alice')
       }
       const users = [{name: 'nobody'}, {name: 'Alice', id: 42}]
@@ -161,14 +161,14 @@ describe('destructuring function parameters', () => {
 
     it('for a missing array value', () => {
       const defaultUser = {id: 23, name: 'Joe'}
-      const fn = ([user]) => {
+      const fn = ([user = defaultUser]) => {
         expect(user).toEqual(defaultUser)
       }
       fn([])
     })
 
     it('mix of parameter types', () => {
-      const fn = (id, [arr], {obj}) => {
+      const fn = (id = 1, [arr = 2], {obj = 3}) => {
         expect(id).toEqual(1)
         expect(arr).toEqual(2)
         expect(obj).toEqual(3)

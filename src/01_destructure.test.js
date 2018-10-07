@@ -45,18 +45,18 @@ describe('destructuring also works on strings', () => {
 
 
   it('destructure every character', () => {
-    let a, b, c = 'abc'
+    let [a, b, c] = 'abc'
 
     expect([a, b, c]).toEqual(['a', 'b', 'c'])
   })
 
   it('missing characters are undefined', () => {
-    const [a, c] = 'ab'
+    const [a, ,c] = 'ab'
     expect(c).toEqual(void 0)
   })
 
   it('unicode character work too', () => {
-    const [space, coffee] = 'a ☕'
+    const [space, ,coffee] = 'a ☕'
 
     expect(coffee).toEqual('\u{2615}')
   })

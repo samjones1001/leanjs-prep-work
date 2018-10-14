@@ -32,7 +32,7 @@ describe('spread with arrays', () => {
         expect(magicNumbers[0]).toEqual(magicA)
         expect(magicNumbers[1]).toEqual(magicB)
       }
-      fn(magicNumbers)
+      fn(...magicNumbers)
     })
   })
 })

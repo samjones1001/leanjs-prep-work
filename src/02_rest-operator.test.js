@@ -25,13 +25,13 @@ describe('rest in function params', () => {
 describe('rest with destructuring', () => {
 
   it('rest parameter must be last', () => {
-    const [firstOne, ...all] = [1, 2, 3, 4]
+    const [firstOne, ...all] = [1, 1, 2, 3, 4]
 
     expect(all).toEqual([1, 2, 3, 4])
   })
 
   it('assign rest of an array to a variable', () => {
-    const [...all] = [1, 2, 3, 4]
+    const [first, ...all] = [1, 2, 3, 4]
 
     expect(all).toEqual([2, 3, 4])
   })
@@ -39,14 +39,14 @@ describe('rest with destructuring', () => {
   // the following are actually using `spread` ... oops, to be fixed
   it('concat differently', () => {
     const theEnd = [3, 4]
-    const allInOne = [1, 2, ...[theEnd]]
+    const allInOne = [1, 2, ...theEnd]
 
     expect(allInOne).toEqual([1, 2, 3, 4])
   })
 
   it('`apply` made simple, even for constructors', () => {
     const theDate = [2015, 1, 1]
-    const date = new Date(theDate)
+    const date = new Date(...theDate)
 
     expect(new Date(2015, 1, 1)).toEqual(date)
   })

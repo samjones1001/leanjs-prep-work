@@ -4,14 +4,14 @@
 describe('spread with arrays', () => {
 
   it('extracts each array item', () => {
-    const [b, a] = [...[1, 2]]
+    const [a,b] = [...[1, 2]]
 
     expect(a).toEqual(1)
     expect(b).toEqual(2)
   })
 
   it('in combination with rest', () => {
-    const [a, b, ...rest] = [...[0, 1, 2, 3, 4, 5]]
+    const [z, a, b, ...rest] = [...[0, 1, 2, 3, 4, 5]]
 
     expect(a).toEqual(1)
     expect(b).toEqual(2)
@@ -19,7 +19,7 @@ describe('spread with arrays', () => {
   })
 
   it('spreading into the rest', () => {
-    const [...rest] = [...[,1, 2, 3, 4, 5]]
+    const [...rest] = [...[1, 2, 3, 4, 5]]
 
     expect(rest).toEqual([1, 2, 3, 4, 5])
   })

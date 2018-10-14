@@ -7,11 +7,11 @@ describe('rest in function params', () => {
     const fn = (firstOne, ...rest) => {
       expect([1, 2]).toEqual(rest)
     }
-    fn(1, 2)
+    fn(1, 1, 2)
   })
 
   it('can be used to get all other parameters', () => {
-    const fn = (firstParam, secondParam, rest) => {
+    const fn = (firstParam, secondParam, ...rest) => {
       expect([3,4]).toEqual(rest)
     }
     fn(null, 2, 3, 4)

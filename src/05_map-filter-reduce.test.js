@@ -13,7 +13,7 @@ describe('use map', () => {
 
   it('map pets to match the string', () => {
     // Write a concise anonymous function using .map to return an array containing the array above
-    const petNames = __
+    const petNames = pets.map((pet) => `${pet.name} is a ${pet.species}`)
 
     expect(petNames).toEqual([
       'guincho is a dog',
@@ -31,7 +31,7 @@ describe('use filter', () => {
 
   it('filters for numbers over 60', () => {
     // Write a concise anonymous function using .filter to return an array containing all the numbers over 60 called overSixty
-    const overSixty = __
+    const overSixty = numbers.filter((number) => number > 60)
 
     expect(overSixty).toEqual([
       65,
@@ -56,7 +56,9 @@ describe('use reduce', () => {
   it('returns the total amount', () => {
     // Use .reduce to return the sum of the orders using a concise anonymous function
     // stored in a variable called orderTotal
-    const orderTotal = __
+    const orderTotal = orders.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.amount
+    }, 0)
 
     expect(orderTotal).toEqual(1170)
   })
